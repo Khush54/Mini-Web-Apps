@@ -1,148 +1,75 @@
-Mini Web Apps 🚀
-Frontend Practice Project (HTML, CSS, JavaScript)
+# Mini Web Apps 🚀
 
-Mini Web Apps ek collection hai 5 small interactive web applications ka, jo single HTML file mein banaye gaye hain.
-Is project ka main purpose hai JavaScript logic, DOM manipulation, aur frontend basics ko practically samajhna.
+This project is a collection of 5 small interactive web applications built using HTML, CSS, and Vanilla JavaScript. It is designed to practice frontend fundamentals, JavaScript logic, and DOM manipulation through simple, real-world examples.
 
-✔ No framework
-✔ No setup
-✔ Direct browser run
+----
 
-Applications Included
-1️⃣ Calculator
+## Features
 
-What it does:
-Basic mathematical calculations perform karta hai.
+- 5 mini web applications in one project
+- Single-file apps (easy to run and understand)
+- Fully responsive design (desktop & mobile)
+- No external libraries or frameworks
+- Beginner-friendly JavaScript logic
 
-Features:
+-----
 
-Add, subtract, multiply, divide
+## Applications Included
 
-Clear button
+- Calculator – Performs basic arithmetic operations
+- Character Counter – Counts characters and words in real time
+- Password Generator – Generates secure random passwords
+- Random Color Generator – Generates random RGB colors with copy option
+- Rock Paper Scissors – Interactive game against the computer
 
-Backspace option
+-----
 
-Learning:
+## Technologies Used
 
-Button click events
+- HTML5 – Structure of the applications
+- CSS3 – Styling, layout, and responsiveness
+- Vanilla JavaScript – Logic, events, and interactivity
 
-Input handling
+----
 
-Conditions
+## How to Run
 
-2️⃣ Character Counter
+1. Clone the repository:
 
-What it does:
-User jo text likhta hai uske characters aur words real-time count karta hai.
+bash 
+git clone https://github.com/Khush54/Mini-Web-Apps.git
 
-Features:
 
-Live character count
+2. Open any .html file in your browser to run the application.
+No setup or installation required.
 
-Live word count
+----
 
-Learning:
+## Folder Structure
+|-- calculator.html
+|-- character-counter.html
+|-- password-generator.html
+|-- random-color-generator.html
+|-- rock-paper-scissors.html
+(Each file is a complete standalone web app)
 
-Keyboard events
+----
 
-String operations
+## Deployment
 
-Real-time updates
+- These applications can be deployed for free using:
+  - GitHub Pages
+  - Netlify
+  - Vercel
 
-3️⃣ Password Generator
+-----
 
-What it does:
-Random aur secure password generate karta hai.
-
-Features:
-
-Custom password length
-
-Letters + numbers + special characters
-
-Learning:
-
-Random function
-
-Arrays & strings
-
-User input
-
-4️⃣ Random Color Generator
-
-What it does:
-Random RGB color generate karta hai aur show karta hai.
-
-Features:
-
-Random RGB values
-
-Color preview
-
-Copy color code
-
-Learning:
-
-Math.random()
-
-CSS manipulation using JS
-
-5️⃣ Rock Paper Scissors
-
-What it does:
-User vs computer game.
-
-Features:
-
-Computer random choice
-
-Win / lose / draw result
-
-Score tracking
-
-Learning:
-
-Game logic
-
-Conditional statements
-
-How to Run
-
-Repository download / clone karo
-
-Kisi bhi .html file ko browser mein open karo
-
-Bas — project run 👍
-
-No installation required.
-
-Technologies Used
-
-HTML – Page structure
-
-CSS – Design & layout
-
-JavaScript – Logic & interaction
-
-Deployment
-
-Free hosting possible on:
-
-GitHub Pages
-
-Netlify
-
-Vercel
-
-🔗 GitHub Repo:
+## 🔗 Live Repository:
 https://github.com/Khush54/Mini-Web-Apps
 
-Why This Project?
+-----
 
-Beginner-friendly
+## Contact
 
-JavaScript basics strong karta hai
-
-Portfolio ke liye useful
-
-College mini project ke liye perfect
+- **Name**: Khushpreet
+- **GitHub**: https://github.com/Khush54
