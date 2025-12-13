@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="It's an random color generator.">
+    <title>Random Color</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background-color: whitesmoke;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            color: black;
+            width: 25em;
+            text-align: center;
+            padding: 20px;
+            border: 3px solid rgb(220, 60, 32);
+            border-radius: 5px;
+        }
+
+        .box {
+            justify-self: center;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        .colbox{
+            width: 8em;
+            height:5em;
+            padding: 20px;
+            margin-top:20px;
+            border: 2px solid black;
+            justify-self: center;
+        }
+
+        #generate {
+            width: 100px;
+            height: 25px;
+            border: 2px solid rgb(220, 60, 32);
+            border-radius: 5px;
+            outline: 1px solid white;
+            font-size: 16px;
+            margin: 10px;
+            background-color: rgba(179, 85, 85, 0.306);
+        }
+
+        #code {
+            width: 200px;
+            height: 20px;
+            border: 2px solid rgb(220, 60, 32);
+            border-radius: 5px;
+            outline: 1px solid white;
+            margin-top: 25px;
+            font-size: 16px;
+        }
+
+        #copy {
+            width: 70px;
+            height: 25px;
+            border: 2px solid rgb(220, 60, 32);
+            border-radius: 5px;
+            outline: 1px solid white;
+            font-size: 16px;
+            background-color: rgba(179, 85, 85, 0.306);
+        }
+
+        @media (max-width:400px) {
+            .container {
+                width: 12em;
+            }
+
+            #insert {
+                width: 150px;
+                height :auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <h1>Random Color Generator</h1>
+            <div class="colbox"></div>
+            <input type="text" id="code" readonly>
+            <button onclick="copy()" id="copy">Copy</button>
+            <button id="generate" onclick="gencolor()">Generate</button>
+        </div>
+    </div>
+    <script>
+        function copy(){
+            password =  document.getElementById('code');
+            password.select();
+            document.execCommand("copy");
+        }
+    function gencolor(){
+        function color(){
+            let val1 = Math.ceil(0 + Math.random()*255);
+            let val2 = Math.ceil(0 + Math.random()*255);
+            let val3 = Math.ceil(0 + Math.random()*255);
+
+            return `rgb(${val1},${val2},${val3})`
+        }
+
+        document.querySelector(".colbox").style.backgroundColor = color()
+        document.getElementById('code').value = color()
+    }
+        
+    </script>
+</body>
+</html>

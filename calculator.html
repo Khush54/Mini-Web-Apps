@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Its an basic arithematic calculator.">
+    <title>Calculator</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            padding: 10px;
+            border: 2px solid rgba(255, 166, 0, 0.822);
+            background-color:  rgba(245, 245, 245, 0.276);
+            outline: 1px solid white;
+            border-radius: 5px;
+            width: 18em;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            height: 3em;
+            border: 2px solid black;
+            border-radius: 5px;
+            outline: 1px solid white;
+            font-size: 20px;
+            font-weight: 500;
+            font-family: 'Times New Roman', Times, serif;
+            text-align: right;
+            padding-right: 10px;
+            margin-bottom: 8px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+        }
+
+        .number {
+            padding: 15px;
+            margin: 5px;
+            border-radius: 50%;
+            border: none;
+            font-size: 20px;
+            font-weight: 700;
+            font-family: 'Times New Roman', Times, serif;
+            cursor: pointer;
+            background-color: rgba(225, 218, 218, 0.203);
+        }
+
+        .number:hover {
+            background-color: rgba(225, 218, 218, 0.982);
+        }
+
+        .clear {
+            background-color: rgba(216, 53, 53, 0.651);
+        }
+
+        .clear:hover {
+            background-color: rgba(216, 53, 53, 0.874);
+        }
+
+        .backspace {
+            background-color: rgba(14, 13, 13, 0.313);
+        }
+
+        .backspace:hover {
+            background-color: rgba(14, 13, 13, 0.763);
+        }
+
+        .operator {
+            background-color: rgba(255, 166, 0, 0.635);
+        }
+
+        .operator:hover {
+            background-color: rgba(255, 166, 0, 0.877);
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="text" id="inserted" readonly>
+        <div class="buttons">
+            <button class="number clear" onclick="clears()">C</button>
+            <button class="number backspace" onclick="backspace()">←</button>
+            <button class="number dot" onclick="display(this)">.</button>
+            <button class="number operator" onclick="calculate()">=</button>
+            <button class="number" onclick="display(this)">7</button>
+            <button class="number" onclick="display(this)">8</button>
+            <button class="number" onclick="display(this)">9</button>
+            <button class="number operator" onclick="display(this)">+</button>
+            <button class="number" onclick="display(this)">4</button>
+            <button class="number" onclick="display(this)">5</button>
+            <button class="number" onclick="display(this)">6</button>
+            <button class="number operator" onclick="display(this)">-</button>
+            <button class="number" onclick="display(this)">1</button>
+            <button class="number" onclick="display(this)">2</button>
+            <button class="number" onclick="display(this)">3</button>
+            <button class="number operator" onclick="display(this)">÷</button>
+            <button class="number"></button>
+            <button class="number" onclick="display(this)">0</button>
+            <button class="number"></button>
+            <button class="number operator" onclick="display(this)">×</button>
+
+        </div>
+    </div>
+    <script>
+        function display(button) {
+            let input = document.getElementById("inserted");
+            if (input.value === '') {
+                input.value = button.innerText;
+            }
+            else {
+                input.value += button.innerText;
+            }
+        }
+
+        function clears() {
+            document.getElementById("inserted").value = " ";
+        }
+
+        function backspace() {
+            text = document.getElementById("inserted");
+            text.value = text.value.slice(0,-1);
+        }
+
+        function calculate(){
+            let num = document.getElementById("inserted");
+            if(num.value === ''){
+                num.value = " "
+            }
+            else{
+                num.value = eval(num.value.replace("÷","/").replace("×","*"))
+            }
+        }
+    </script>
+</body>
+
+</html>

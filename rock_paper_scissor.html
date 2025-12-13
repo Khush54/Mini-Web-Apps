@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Its an rock paper scissor game.">
+    <title>Rock Paper Scissor Game</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background-color: rgba(184, 142, 121, 0.16);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #container {
+            background-color: white;
+            color: rgb(181, 155, 8);
+            width: 25em;
+            text-align: center;
+            padding: 20px;
+            border: 3px solid rgb(181, 155, 8);
+            border-radius: 5px;
+        }
+
+        .image {
+            width: 9em;
+            height: 9em;
+            margin-top: 20px;
+            border: 2px solid rgba(0, 0, 0, 0.281);
+            border-radius: 4px;
+            background-color: rgb(181, 155, 8);
+        }
+
+        #play_again,
+        #exit {
+            width: 8em;
+            height: 2em;
+            margin-top: 10px;
+            border: 2px solid rgba(0, 0, 0, 0.281);
+            border-radius: 4px;
+            font-size: 18px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            background-color: rgb(194, 173, 51);
+        }
+
+        #game,
+        #playing {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            width: 25em;
+            padding: 30px;
+            border: none;
+        }
+
+        #game h1,
+        #playing h1 {
+            color: rgb(107, 35, 35);
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+            font-weight: bolder;
+        }
+
+        #game h3 {
+            color: black;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: left;
+            font-weight: bolder;
+            margin: 10px;
+            margin-top: 20px;
+        }
+
+        #playing h3 {
+            color: rgb(107, 35, 35);
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+            font-weight: bolder;
+            margin: 10px;
+            margin-top: 20px;
+        }
+
+        #game ol {
+            color: rgb(23, 21, 21);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-align: left;
+            font-weight: 500;
+            margin: 10px;
+            font-size: 17px;
+        }
+
+        #game p,
+        #playing p {
+            color: rgb(139, 39, 39);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-align: center;
+            font-weight: bolder;
+            margin: 20px;
+            font-size: 18px;
+        }
+
+        #closegame {
+            color: rgb(139, 39, 39);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-align: center;
+            font-weight: bolder;
+            width: 70px;
+            height: 25px;
+            border: none;
+            border-radius: 5px;
+            outline: 2px solid brown;
+            font-size: 18px;
+            background-color: burlywood;
+            position: fixed;
+            top: 92%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <dialog id="game">
+        <h1>Welcome to Rock, Paper and Scissor Game🎊</h1>
+        <h3>Instructions for the game :</h3>
+        <ol>
+            <li> Select your move by clicking on the image of rock , paper or scissor.</li>
+            <li> Computer will also select its move.</li>
+            <li> your and computer move will be checked and winner will be declared.</li>
+        </ol>
+        <p>So, Let's have this fun begin.</p>
+        <button id="closegame" onclick="closing_game()">PLAY</button>
+    </dialog>
+    <div class="hidden" id="container">
+        <div class="box">
+            <h1>SELECT YOUR MOVE</h1>
+            <button class="image" data-choice="rock"><span style="font-size: 50px;">🪨</span></button>
+            <button class="image" data-choice="paper"><span style="font-size: 50px;">📃</span></button>
+            <button class="image" data-choice="scissor"><span style="font-size: 50px;">✂️</span></button>
+            <dialog id="playing">
+                <h1 id="heading"></h1>
+                <h3 id="winner"></h3>
+                <p id="win"></p>
+                <button id="play_again">Play Again</button>
+                <button id="exit">Exit</button>
+            </dialog>
+        </div>
+    </div>
+    <script>
+        let games = document.getElementById("game");
+        let closing = document.getElementById("closegame");
+        let hid = document.getElementById('container');
+
+
+        window.onload = function () {
+            games.showModal();
+        }
+
+        function closing_game() {
+            games.close();
+            hid.classList.remove('hidden');
+        }
+
+        function play(event) {
+            let userChoice = event.currentTarget.getAttribute("data-choice");
+            let array = ['rock', 'paper', 'scissor'];
+            let computer = array[Math.floor(Math.random() * array.length)]
+            let result;
+            let statement;
+            if ((computer === "rock" && userChoice === "paper") || (computer === "paper" && userChoice === "scissor") || (computer === "scissor" && userChoice === "rock")) {
+                statement = "Hurray🎉🥂";
+                result = "You won the Game🎊";
+            }
+            else if (computer === userChoice) {
+                statement = "OOPS😯🙄";
+                result = "Match drawn 🤝";
+            }
+            else {
+                statement = "LOST🥺😖";
+                result = "Computer won the Game🎊";
+            }
+
+            document.getElementById("heading").textContent = statement;
+            document.getElementById("winner").textContent = result;
+            document.getElementById("win").innerHTML = `Your Choice : ${userChoice} <br> Computer's Choice : ${computer}`;
+            document.getElementById("playing").showModal();
+            document.querySelectorAll(".image").forEach(button => {
+                button.disabled = true;
+            }
+            )
+
+        }
+
+        document.querySelectorAll(".image").forEach(button => {
+            button.addEventListener('click', play)
+        }
+        )
+
+        document.getElementById("play_again").addEventListener("click", () => {
+            document.getElementById("playing").close();
+            document.querySelectorAll(".image").forEach(button => {
+                button.disabled = false;
+            }
+            )
+        }
+        )
+
+        document.getElementById("exit").addEventListener("click", () => {
+            document.getElementById("playing").close();
+            document.getElementById("container").classList.add('hidden');
+            games.showModal();
+
+            document.querySelectorAll(".image").forEach(button => {
+                button.disabled = false;
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="It's an counter that will count the characters in input field.">
+    <title>Charcater and Word Counter</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background-color: rgba(172, 170, 169, 0.352);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(212, 170, 61, 0.893);
+            color: black;
+            width: 20em;
+            text-align: center;
+            padding: 20px;
+            border: 3px solid rgba(225, 215, 96, 0.936);
+            border-radius: 5px;
+        }
+
+        .box {
+            justify-self: center;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        #insert {
+            width: 300px;
+            height: 200px;
+            border: 2px solid rgba(230, 201, 59, 0.452);
+            border-radius: 5px;
+            outline: 1px solid white;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        p {
+            color: rgb(56, 25, 5);
+            font-size: 18px;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        @media (max-width:400px) {
+            .container {
+                width: 12em;
+            }
+
+            #insert {
+                width: 150px;
+                height :auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <h1>Enter your text : </h1>
+            <textarea name="insert" id="insert"></textarea>
+            <p>Character counter :<span id="output_character"></span></p>
+            <p>Word counter :<span id="output_word"></span></p>
+        </div>
+    </div>
+    <script>
+        document.getElementById("insert").addEventListener("input", function () {
+            let text = this.value.replace(/\s+/g, "");
+            document.getElementById("output_character").textContent = text.length
+
+            let word = this.value.trim();
+            if(word.length === 0){
+                document.getElementById("output_word").textContent = 0
+            }
+            else{
+                document.getElementById("output_word").textContent = word.split(/\s+/).length
+            }
+        }
+        )
+    </script>
+</body>
+</html>
