@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini Web Apps Hub</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #111;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 40px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 40px;
+        }
+
+        a {
+            text-decoration: none;
+            background: crimson;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 18px;
+            display: block;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            transform: scale(1.1);
+            background: darkred;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🚀 My Mini Web Apps</h1>
+
+<div class="grid">
+    <a href="./calculator/index.html">Calculator</a>
+    <a href="./todo/index.html">To Do App</a>
+    <a href="./weather/index.html">Weather App</a>
+    <a href="./clock/index.html">Clock</a>
+    <a href="./quiz/index.html">Quiz App</a>
+</div>
+
+</body>
+</html>
